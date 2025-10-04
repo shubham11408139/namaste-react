@@ -1,3 +1,30 @@
-#heading {
+/* #heading {
     color: red
+} */
+.heading {
+    color: green
 }
+.user-card {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 2px 2px 5px grey;
+    text-align: center;
+}
+.header{
+    background-color: lightblue;
+    padding: 10px;
+    text-align: center;
+ }
+ .body{
+    background-color: lightgreen;
+    padding: 10px;
+    text-align: center;
+ }
+ .footer {
+    background-color: lightpink;
+    padding: 10px;
+    text-align: center;
+ }
