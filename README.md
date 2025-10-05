@@ -17,3 +17,32 @@
 - HTTPs
 - Tree Shaking
 - Different dev and prod bundles
+
+# Namaste- Food
+/**
+ * Food Delivery App have:
+ * Header
+ *   - Logo
+ *   - Nav Items
+ * Body
+ *   - SearchBar
+ *   - RestaurantContainer
+ *        - RestaurantCard
+ *         - Image
+ *         - Name
+ *         - Cusine
+ *         - Rating
+ *         - Delivery Time
+ * Footer(Copyright, Links, Address, Contact)
+ */
+
+ # React Hooks
+  (Normal JS utility functions)
+  - useState()  # Most important
+  - useEffect() # Most important
+
+  - useRef()
+  - useContext()
+  - useReducer()
+  - useMemo()
+  - useCallback()
