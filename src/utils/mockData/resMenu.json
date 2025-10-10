@@ -1,0 +1,43 @@
+{
+  "statusCode": 0,
+  "data": {
+    "id": "809929",
+    "name": "Bhagwati Bakery",
+    "cuisines": ["Cake", "North Indian"],
+    "avgRating": 4.2,
+    "costForTwoMessage": "₹300 for two",
+    "sla": {
+      "deliveryTime": 38,
+      "lastMileTravel": 2.1,
+      "serviceability": "SERVICEABLE"
+    },
+    "menu": {
+      "items": {
+        "1": {
+          "id": "1",
+          "name": "Chocolate Truffle Cake",
+          "category": "Cakes",
+          "price": 45000,
+          "description": "Rich chocolate cake topped with truffle ganache.",
+          "imageId": "sample-cake1"
+        },
+        "2": {
+          "id": "2",
+          "name": "Paneer Tikka Sandwich",
+          "category": "Snacks",
+          "price": 15000,
+          "description": "Grilled sandwich stuffed with paneer tikka and veggies.",
+          "imageId": "sample-snack1"
+        },
+        "3": {
+          "id": "3",
+          "name": "Cold Coffee",
+          "category": "Beverages",
+          "price": 12000,
+          "description": "Iced coffee with milk and whipped cream topping.",
+          "imageId": "sample-coffee1"
+        }
+      }
+    }
+  }
+}

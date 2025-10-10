@@ -113,6 +113,13 @@
     box-shadow: 2px 2px 5px grey;
     text-align: center;
 }
+
+
+.user-about-card {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
 /* .header{
     background-color: lightblue;
     padding: 10px;

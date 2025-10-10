@@ -3,28 +3,24 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useRestaurantList from "../utils/useRestaurantList";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
+
 const Body = () => {
-
-  // const [restuarants , setRestuarants] = useState(resList);
-  const [restuarants, setRestuarants] = useState([]);
+  const { restaurants, isLoading } = useRestaurantList();
   const [filteredRestuarants, setFilteredRestuarants] = useState([]);
-
   const [searchText, setSearchText] = useState("");
- console.log("Body Rendered");
+
   useEffect(() => {
-    console.log("useEffect called");
-    fetchData();
-  }, [])
+    setFilteredRestuarants(restaurants);
+  }, [restaurants])
 
-  const fetchData = async () => {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.1795328&lng=78.021112&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-    const json = await data.json();
-    console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setRestuarants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilteredRestuarants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-  }
-
-  return (restuarants?.length === 0) ? (<Shimmer />) : (
+  const onlineStatus = useOnlineStatus();
+  if(onlineStatus === false) return <h1>🔴 Offline, Please check your internet connection!!</h1>
+  
+  if (isLoading) return <Shimmer />;
+  return  (
     <div className="body">
       <div className='filter'>
         <div className="search">
@@ -47,8 +43,8 @@ const Body = () => {
       </div>
       <div className='res-container'>
         {filteredRestuarants?.map((item) => (
-          <Link key={item.info.id} to={'/restaurant/'+item.info.id}><RestaurantCard 
-            
+          <Link key={item.info.id} to={'/restaurant/'+item.info.id}>
+            <RestaurantCard 
             resName={item.info.name}
             cuisine={item.info.cuisines.join(", ")}
             rating={item.info.avgRating}
