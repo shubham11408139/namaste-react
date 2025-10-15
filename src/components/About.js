@@ -1,7 +1,7 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import React from "react";
-
+import UserContext from "../utils/UserContext";
 
 class About extends React.Component{
     constructor(props){
@@ -18,6 +18,13 @@ class About extends React.Component{
     return (
         <div>
             <h1>About Us</h1>
+            <div>
+              LoggedIn User:
+              {/* Hooks won't work in class based components , so we can not use useContect hook and we will use Consumer */}
+              <UserContext.Consumer>
+                {({loggedInUser})=><span className="font-bold text-xl">{loggedInUser}</span>}
+              </UserContext.Consumer> 
+            </div>
             <h2>This is about page</h2>
             <UserClass name={"First"} location={"Agra"} contact={"@shubhamgupta608608"}/>
             {/* <UserClass name={"Second"} location={"Atlanta"} contact={"@elonmusk608608"}/> */}

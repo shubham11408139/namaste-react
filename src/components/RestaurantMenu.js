@@ -10,6 +10,7 @@ const resInfo = useRestaurantMenu(resId);
     // const {name, cuisines,costForTwoMessage,avgRating } = resInfo?.cards[2]?.card?.card?.info || {}
     // const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card || {}
 
+    // console.log("resInfo",resInfo);
     // 💡 Adjusted structure for mock data
   const { name, cuisines, costForTwoMessage, avgRating, menu } = resInfo || {};
   const itemCards = Object.values(menu?.items || {});
@@ -18,9 +19,9 @@ const resInfo = useRestaurantMenu(resId);
         return <Shimmer />
     }
     return  (
-        <div className="menu">
-            <h1>{name}</h1>
-            <p>{cuisines.join(", ")}</p>
+        <div className="text-center">
+            <h1 className="font-bold my-6 text-2xl">{name}</h1>
+            <p className="font-bold text-lg">{cuisines.join(", ")}</p>
             <p>{costForTwoMessage}</p>
             <p>{avgRating}⭐</p>
             <h2>Menu</h2>
