@@ -1,11 +1,20 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 
 const RestaurantMenu = ()=>{    
 const {resId} = useParams();
 const resInfo = useRestaurantMenu(resId);
+
+
+const dispatch = useDispatch();
+const handleAddItenm = ()=>{
+    //Dispatch an action
+    dispatch(addItem("Pizza")); 
+}
 
     // const {name, cuisines,costForTwoMessage,avgRating } = resInfo?.cards[2]?.card?.card?.info || {}
     // const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card || {}
@@ -37,6 +46,7 @@ const resInfo = useRestaurantMenu(resId);
                 <li>Diet Coke</li>
                 <li>Lassi</li> */}
             </ul>
+            <button className="p-2 mx-16 rounded-2xl bg-green-300 cursor-pointer hover:bg-green-400" onClick={handleAddItenm}> Add + </button>
         </div>
     )
 } 

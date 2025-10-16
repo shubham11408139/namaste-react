@@ -3,13 +3,18 @@ import { useContext, useState } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 const Header = ()=>{
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   console.log("Header rendered");
 
   const onlineStatus = useOnlineStatus();
   const {loggedInUser} = useContext(UserContext);
-  // console.log("data is:", data);
+
+  //Subscribing to the store using Selector 
+  const cartItems = useSelector((store)=> store.cart.items)
+  console.log("data is:", cartItems);
   // useEffect(()=>{
   //   console.log("useEffect called in Header.JS");
   // },[isLoggedIn ])
@@ -26,7 +31,7 @@ const Header = ()=>{
           <li className="px-3"><Link to="/contact">Contact Us</Link></li>
           <li className="px-3"><Link to="/grocery">Grocery</Link></li>
 
-          {/* <li className="px-3">Cart</li> */}
+          <li className="px-3 font-bold text-xl">Cart -  ({cartItems.length} Items)</li>
           <button className="login-btn" onClick={() => {
             setIsLoggedIn(!isLoggedIn)}}>{isLoggedIn?"Logout":"Login"}
           </button>
